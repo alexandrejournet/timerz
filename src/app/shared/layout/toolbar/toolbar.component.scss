@@ -1,0 +1,67 @@
+:host {
+  height: 10%;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: whitesmoke;
+
+  .toolbar {
+    width: 90%;
+    height: 80%;
+    box-shadow: 0px 2px 4px 0px #00000040;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: white;
+
+    .toolbar-part {
+      width: 40%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 200ms;
+
+      &:active {
+        transform: scale(1.5);
+      }
+
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+
+    .btn-add-container {
+      position: absolute;
+      background: whitesmoke;
+      border-radius: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 5em;
+      width: 5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .btn-add {
+        width: 70%;
+        height: 70%;
+        border-radius: 50%;
+        box-shadow: 0px 0px 4px 3px #00000040;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 200ms;
+        background: white;
+
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+}
+

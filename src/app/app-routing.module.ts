@@ -1,10 +1,17 @@
-import {HomeComponent} from "./components/home/home.component";
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent
+    path: '', loadComponent: () => import('./pages/home/home.component').then(comp => comp.HomeComponent)
+  },
+  {
+    path: 'create', loadComponent: () => import('./shared/layout/layout.component').then(comp => comp.LayoutComponent),
+    children: [
+        {
+          path: '', loadComponent: () => import('./pages/creation/creation.component').then(comp => comp.CreationComponent)
+        }
+      ]
   }
 ]
 

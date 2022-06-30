@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h4 class="modal-title">Configuration d'un timer</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <label for="time">Temps * </label>
+  <input id="time" type="number" class="form-control" placeholder="En secondes" [(ngModel)]="timer.time" />
+
+  <label for="name">Nom </label>
+  <input id="name" type="text" class="form-control" placeholder="Facultatif" [(ngModel)]="timer.name"/>
+</div>
+<div class="modal-footer d-flex justify-content-center align-items-center" (click)="addTimer()">
+  Ajouter
+</div>

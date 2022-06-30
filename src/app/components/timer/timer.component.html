@@ -1,0 +1,15 @@
+<ng-container *ngIf="timer">
+  <div class="card-container">
+    <div class="card" #card
+         [@cardAnimator]="animationState"
+         [@cardAnimator.done]="startAnimation('headShake')"
+         (swipeleft)="onPanLeft()"
+         (swiperight)="onPanRight()"
+         (press)="startAnimation('headShake')">
+      <span>Temps choisi : {{timer.time}}</span>
+      <span *ngIf="timer.name">Nom : {{timer.name}}</span>
+    </div>
+  </div>
+
+</ng-container>
+
