@@ -1,0 +1,7 @@
+<ng-container *ngIf="progress && timer">
+  <div id="progress" #progressBar>
+    <span id="progress-value">{{progressShown}}</span>
+    <span *ngIf="timer.name" id="progress-name">{{timer.name}}</span>
+  </div>
+</ng-container>
+

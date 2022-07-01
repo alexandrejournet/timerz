@@ -20,13 +20,11 @@ import {TimerComponent} from "../../components/timer/timer.component";
 export class CreationComponent extends Destroyed implements OnInit {
 
   public timerList: Timer[];
-  private timerListObs: Observable<Timer[]>;
 
   constructor(private readonly navbarService: NavbarService,
               private readonly timerService: TimerService) {
     super();
     this.timerList = [];
-    this.timerListObs = of(this.timerList);
   }
 
   ngOnInit(): void {
@@ -38,6 +36,7 @@ export class CreationComponent extends Destroyed implements OnInit {
           this.navbarService.showNext();
         }
         this.timerList.push(value);
+        this.timerService.changeTimers(this.timerList);
       }
     });
 
@@ -45,11 +44,6 @@ export class CreationComponent extends Destroyed implements OnInit {
       .subscribe(() => {
         this.timerList = [];
     });
-
-    this.timerListObs.pipe(takeUntil(this.destroyed))
-      .subscribe(() => {
-
-    })
   }
 
   duplicateTimer(index: number) {
@@ -58,6 +52,7 @@ export class CreationComponent extends Destroyed implements OnInit {
 
   removeTimer(index: number) {
     this.timerList.splice(index, 1);
+    this.timerService.changeTimers(this.timerList);
     if (this.timerList.length === 0) {
       this.navbarService.showNext();
     }

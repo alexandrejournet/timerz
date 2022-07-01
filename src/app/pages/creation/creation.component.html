@@ -1,6 +1,7 @@
 <ng-container *ngIf="timerList && timerList.length > 0; else noTimerYet">
   <div *ngFor="let timer of timerList; let i = index">
     <app-timer [timer]="timer"
+               [index]="i +1"
                (duplicateEvent)="duplicateTimer(i)"
                (deleteEvent)="removeTimer(i)"></app-timer>
   </div>

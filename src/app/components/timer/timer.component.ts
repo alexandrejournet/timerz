@@ -37,6 +37,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 export class TimerComponent implements OnInit {
 
   @Input() timer?: Timer;
+  @Input() index?: number;
 
   @ViewChild('card') cardTimer?: ElementRef;
 

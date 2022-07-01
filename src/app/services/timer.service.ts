@@ -22,6 +22,9 @@ export class TimerService {
 
     this.resetTimerSubject = new Subject<void>();
     this.resetTimerObs = this.resetTimerSubject.asObservable();
+
+    this.timerToLaunchSubject = new BehaviorSubject<Timer[] | undefined>(undefined);
+    this.timerToLaunchObs = this.timerToLaunchSubject.asObservable();
   }
 
   changeTimer(timer: Timer) {
@@ -31,5 +34,9 @@ export class TimerService {
   resetTimer() {
     this.timerSubject.next(undefined);
     this.resetTimerSubject.next();
+  }
+
+  changeTimers(timers: Timer[]) {
+    this.timerToLaunchSubject.next(timers);
   }
 }

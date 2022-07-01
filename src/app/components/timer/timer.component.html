@@ -5,8 +5,11 @@
          (swipeleft)="onPanLeft()"
          (swiperight)="onPanRight()"
          (press)="startAnimation('headShake')">
-      <span>Temps choisi : {{timer.time}}</span>
-      <span *ngIf="timer.name">Nom : {{timer.name}}</span>
+      <span class="me-1">#{{index}}</span>
+      <div class="flex-column">
+        <span *ngIf="timer.name">Nom : {{timer.name}}</span>
+        <span>Temps choisi : {{timer.time}}</span>
+      </div>
     </div>
     <div class="hidden-btn">
       <fa-icon [icon]="duplicateIcon" (click)="onDuplicate()"></fa-icon>

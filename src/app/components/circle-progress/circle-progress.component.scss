@@ -1,0 +1,35 @@
+#progress {
+  height: 75vw;
+  width: 75vw;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  float: left;
+  margin-top: 3px;
+  transition:all 1s;
+}
+
+#progress-value {
+  height: calc(100% - 30px);
+  width: calc(100% - 30px);
+  background-color:whitesmoke;
+  color: black;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 4rem;
+  transition:all 1s;
+}
+
+#progress-name {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 45%;
+  height: 10%;
+  overflow-wrap: break-word;
+  color: grey;
+}

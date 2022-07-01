@@ -1,1 +1,49 @@
-<p>session works!</p>
+<div class="counter">
+  <ng-container *ngIf="!isOver; else sessionFinished">
+    <div class="progress-countdown">
+      <ng-container *ngIf="!isStarted; else sessionStarted">
+        <span class="start-message">Appuyez sur play pour commencer !</span>
+      </ng-container>
+      <ng-template #sessionStarted>
+        <app-circle-progress *ngIf="currentTimer"
+                             [progress]="currentTime"
+                             [timer]="currentTimer"></app-circle-progress>
+      </ng-template>
+    </div>
+    <div class="progress-btn">
+      <fa-icon class="play" [icon]="playPauseBtn()" (click)="playPauseCountdown()"></fa-icon>
+      <fa-icon class="stop" [icon]="stopBtn"></fa-icon>
+    </div>
+  </ng-container>
+  <ng-template #sessionFinished>
+
+
+    <div class="finished"></div>
+    <div class="progress-countdown">
+      <span class="start-message">Bien joué !</span>
+    </div>
+    <div class="progress-btn">
+      <div class="recap-btn">Récapitulatif de la séance</div>
+    </div>
+  </ng-template>
+
+</div>
+<ng-container *ngIf="currentIndex !== undefined && timers">
+  <div class="timer-left">
+    {{currentIndex}}/{{timers.length}}
+  </div>
+</ng-container>
+
+<div class="timers">
+  <ng-container *ngIf="currentIndex !== undefined && timers">
+
+    <div *ngFor="let timer of timers; let i = index" class="card-timer ms-3 me-3" [ngClass]="i === currentIndex ? 'yellow' : i > currentIndex ? 'blue' : 'green'">
+      <ng-container *ngIf="i >= currentIndex; else done">
+        {{timer.time}}
+      </ng-container>
+      <ng-template #done>
+        <fa-icon [icon]="faTick"></fa-icon>
+      </ng-template>
+    </div>
+  </ng-container>
+</div>
