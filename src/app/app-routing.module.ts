@@ -12,7 +12,10 @@ const routes: Routes = [
           path: '', loadComponent: () => import('./pages/creation/creation.component').then(comp => comp.CreationComponent)
         }
       ]
-  }
+  },
+  {
+    path: 'session', loadComponent: () => import('./pages/session/session.component').then(comp => comp.SessionComponent)
+  },
 ]
 
 

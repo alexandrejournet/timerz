@@ -1,7 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Timer} from "../../models/timer.model";
 import {CommonModule} from "@angular/common";
-import {animate, keyframes, state, transition, trigger} from "@angular/animations";
+import {animate, keyframes, state, style, transition, trigger} from "@angular/animations";
 import * as kf from '../../shared/keyframes/keyframes';
 import { HammerModule} from "@angular/platform-browser";
 import {faCircleMinus, faDeleteLeft} from "@fortawesome/free-solid-svg-icons";
@@ -21,11 +21,16 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
   animations: [
     trigger('cardAnimator', [
       transition('* => headShake', animate("1s ease-in-out", keyframes(kf.headShake))),
-      /*transition('* => wobble', animate(1000, keyframes(kf.wobble))),
-      transition('* => jello', animate(1000, keyframes(kf.jello))),
-      transition('* => zoomOutRight', animate(1000, keyframes(kf.zoomOutRight))),
-      transition('* => rotateOutUpRight', animate(1000, keyframes(kf.rotateOutUpRight))),
-      transition('* => flipOutY', animate(1000, keyframes(kf.flipOutY))),*/
+    ]),
+    trigger('enter', [
+      state('in', style({ transform: 'translateX(0)' })),
+      transition(':enter', [
+        style({ transform: 'translateX(100%)' }),
+        animate(100)
+      ]),
+      transition(':leave', [
+        animate(100, style({ transform: 'translateX(100%)' }))
+      ]),
     ])
   ]
 })

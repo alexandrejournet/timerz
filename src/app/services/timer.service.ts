@@ -13,6 +13,9 @@ export class TimerService {
   private readonly resetTimerSubject: Subject<void>;
   public readonly resetTimerObs: Observable<void>;
 
+  private readonly timerToLaunchSubject: BehaviorSubject<Timer[] | undefined>;
+  public readonly timerToLaunchObs: Observable<Timer[] | undefined>;
+
   constructor() {
     this.timerSubject = new BehaviorSubject<Timer | undefined>(undefined);
     this.timerObs = this.timerSubject.asObservable();

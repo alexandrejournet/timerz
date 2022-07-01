@@ -5,11 +5,24 @@ import {NavbarService} from "../../../services/navbar.service";
 import {Destroyed} from "../../injectable/destroyed.injectable";
 import {takeUntil} from "rxjs";
 import {TimerService} from "../../../services/timer.service";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  animations: [
+    trigger('enter', [
+      state('in', style({ opacity: 100 })),
+      transition(':enter', [
+        style({ opacity: 100 }),
+        animate('300ms')
+      ]),
+      transition(':leave', [
+        animate('300ms', style({ opacity: 0 }))
+      ]),
+    ])
+  ]
 })
 export class NavbarComponent extends Destroyed implements OnInit {
 
@@ -38,6 +51,10 @@ export class NavbarComponent extends Destroyed implements OnInit {
   async goHome() {
     this.timerService.resetTimer();
     await this.router.navigate(['']);
+  }
+
+  async goNext() {
+    await this.router.navigate(['session']);
   }
 
 }

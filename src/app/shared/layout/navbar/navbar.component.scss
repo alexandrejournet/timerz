@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     font-size: 22pt;
+    position: relative;
 
     .navbar-btn {
       width: 15vw;
@@ -21,6 +22,28 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .navbar-btn-right {
+      position: absolute;
+      right: 0.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .btn-next {
+        cursor: pointer;
+        font-size: 12pt;
+        font-size: 12pt;
+        padding: 0.5em;
+        border: 1px solid grey;
+        border-radius: 10px;
+        transition: 200ms;
+
+        &:active {
+          transform: scale(0.9);
+        }
+      }
     }
   }
 
