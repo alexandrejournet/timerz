@@ -1,9 +1,12 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Timer} from "../../models/timer.model";
 import {CommonModule} from "@angular/common";
 import {animate, keyframes, state, transition, trigger} from "@angular/animations";
 import * as kf from '../../shared/keyframes/keyframes';
 import { HammerModule} from "@angular/platform-browser";
+import {faCircleMinus, faDeleteLeft} from "@fortawesome/free-solid-svg-icons";
+import {faClone} from "@fortawesome/free-regular-svg-icons";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 @Component({
   standalone: true,
@@ -12,7 +15,8 @@ import { HammerModule} from "@angular/platform-browser";
   styleUrls: ['./timer.component.scss'],
   imports: [
     CommonModule,
-    HammerModule
+    HammerModule,
+    FontAwesomeModule
   ],
   animations: [
     trigger('cardAnimator', [
@@ -34,6 +38,13 @@ export class TimerComponent implements OnInit {
   animationState?: string;
 
   menuShown = false;
+
+  public readonly duplicateIcon = faClone;
+  public readonly deleteIcon = faCircleMinus;
+
+  @Output() duplicateEvent: EventEmitter<any> = new EventEmitter();
+  @Output() deleteEvent: EventEmitter<any> = new EventEmitter();
+
 
   constructor() { }
 
@@ -73,5 +84,13 @@ export class TimerComponent implements OnInit {
 
   onPress($event: any) {
     console.log($event)
+  }
+
+  onDuplicate() {
+    this.duplicateEvent.emit();
+  }
+
+  onDelete() {
+    this.deleteEvent.emit();
   }
 }
