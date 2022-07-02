@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {ToastService} from "../../services/toast.service";
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,15 +9,19 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent {
 
-  constructor(private readonly router: Router,
-              private readonly toastService: ToastService) { }
+  constructor(private readonly router: Router) {
+  }
 
   async createTimer() {
     await this.router.navigate(['create']);
   }
 
-  goToMesTimers() {
-    this.toastService.showWarn("Oups", "Pas encore développé");
+  async goToMesTimers() {
+    await this.router.navigate(['list']);
+  }
+
+  async openSettings() {
+    await this.router.navigate(['params']);
   }
 
 }

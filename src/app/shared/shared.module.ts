@@ -1,22 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { DialogAddTimerComponent } from './dialog/dialog-add-timer/dialog-add-timer.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {DialogAddTimerComponent} from './dialog/dialog-add-timer/dialog-add-timer.component';
 import {FormsModule} from "@angular/forms";
-import { HammertimeDirective } from './directives/hammertime.directive';
-
-
+import {HammertimeDirective} from './directives/hammertime.directive';
 
 @NgModule({
-    declarations: [
-
+  declarations: [
     DialogAddTimerComponent,
-     HammertimeDirective
+    HammertimeDirective
   ],
-    exports: [
-    ],
-    imports: [
-        CommonModule,
-        FormsModule
-    ]
+  exports: [],
+  imports: [
+    CommonModule,
+    FormsModule
+  ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

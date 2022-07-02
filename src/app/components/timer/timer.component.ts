@@ -3,10 +3,12 @@ import {Timer} from "../../models/timer.model";
 import {CommonModule} from "@angular/common";
 import {animate, keyframes, state, style, transition, trigger} from "@angular/animations";
 import * as kf from '../../shared/keyframes/keyframes';
-import { HammerModule} from "@angular/platform-browser";
-import {faCircleMinus, faDeleteLeft} from "@fortawesome/free-solid-svg-icons";
+import {HammerModule} from "@angular/platform-browser";
+import {faCircleMinus} from "@fortawesome/free-solid-svg-icons";
 import {faClone} from "@fortawesome/free-regular-svg-icons";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {DragDropModule} from "@angular/cdk/drag-drop";
+import {TimePipe} from "../../shared/pipes/time.pipe";
 
 @Component({
   standalone: true,
@@ -16,7 +18,9 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
   imports: [
     CommonModule,
     HammerModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    DragDropModule,
+    TimePipe
   ],
   animations: [
     trigger('cardAnimator', [
@@ -68,7 +72,7 @@ export class TimerComponent implements OnInit {
     this.animationState = '';
   }
 
-  onPanLeft() {
+  /*onPanLeft() {
     if(!this.menuShown) {
       this.menuShown = !this.menuShown;
       if(this.cardTimer!.nativeElement.classList.contains('translate-in')) {
@@ -90,7 +94,7 @@ export class TimerComponent implements OnInit {
 
   onPress($event: any) {
     console.log($event)
-  }
+  }*/
 
   onDuplicate() {
     this.duplicateEvent.emit();

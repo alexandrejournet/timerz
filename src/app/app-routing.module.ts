@@ -8,13 +8,44 @@ const routes: Routes = [
   {
     path: 'create', loadComponent: () => import('./shared/layout/layout.component').then(comp => comp.LayoutComponent),
     children: [
-        {
-          path: '', loadComponent: () => import('./pages/creation/creation.component').then(comp => comp.CreationComponent)
-        }
-      ]
+      {
+        path: '',
+        loadComponent: () => import('./pages/creation/creation.component').then(comp => comp.CreationComponent)
+      }
+    ],
+    data: {
+      showToolbar: true
+    }
   },
   {
-    path: 'session', loadComponent: () => import('./pages/session/session.component').then(comp => comp.SessionComponent)
+    path: 'session',
+    loadComponent: () => import('./pages/session/session.component').then(comp => comp.SessionComponent)
+  },
+  {
+    path: 'recap', loadComponent: () => import('./pages/recap/recap.component').then(comp => comp.RecapComponent)
+  },
+  {
+    path: 'params', loadComponent: () => import('./shared/layout/layout.component').then(comp => comp.LayoutComponent),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./pages/parametres/parametres.component').then(comp => comp.ParametresComponent)
+      }
+    ],
+    data: {
+      showToolbar: false
+    }
+  },
+  {
+    path: 'list', loadComponent: () => import('./shared/layout/layout.component').then(comp => comp.LayoutComponent),
+    children: [
+      {
+        path: '', loadComponent: () => import('./pages/list/list.component').then(comp => comp.ListComponent)
+      }
+    ],
+    data: {
+      showToolbar: false
+    }
   },
 ]
 
@@ -23,4 +54,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

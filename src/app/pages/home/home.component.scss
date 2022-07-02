@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
 :host {
   height: 100%;
   width: 100%;
@@ -5,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: whitesmoke;
+  background: ghostwhite;
 
   .header {
     height: 30%;
@@ -13,8 +15,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: normal;
-    font-size: 2rem;
+    font-size: 3rem;
+    font-family: 'Bungee Shade', cursive;
   }
 
   .buttons {
@@ -27,7 +29,7 @@
   }
 
   .btn-home {
-    box-shadow: 0px 0px 4px 3px #00000040;
+    box-shadow: 0 0 4px 3px #00000040;
     border-radius: 5px;
     width: 80%;
     height: 20%;
@@ -40,7 +42,7 @@
     background: white;
 
     &:active {
-      transform: scale(1.1);
+      transform: scale(0.9);
     }
   }
 }

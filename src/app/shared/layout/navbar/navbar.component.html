@@ -7,7 +7,7 @@
     <span>{{title}}</span>
   </div>
 
-  <div class="navbar-btn-right" *ngIf="isNextShow">
+  <div *ngIf="showBtn" class="navbar-btn-right">
     <div @enter class="btn-next" (click)="goNext()">Go !</div>
   </div>
 </div>

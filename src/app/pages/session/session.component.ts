@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TimerService} from "../../services/timer.service";
 import {Destroyed} from "../../shared/injectable/destroyed.injectable";
-import {takeUntil} from "rxjs";
 import {Timer} from "../../models/timer.model";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {CommonModule} from "@angular/common";
 import {faCheck, faPauseCircle, faPlayCircle, faStop} from "@fortawesome/free-solid-svg-icons";
 import {CircleProgressComponent} from "../../components/circle-progress/circle-progress.component";
+import {NavigationEnd, NavigationStart, Router} from "@angular/router";
 
 @Component({
   standalone: true,
@@ -28,8 +28,6 @@ export class SessionComponent extends Destroyed implements OnInit {
   public currentInterval: any;
   public currentIndex?: number;
 
-  public readonly playBtn = faPlayCircle;
-  public readonly pauseBtn = faPauseCircle;
   public readonly stopBtn = faStop;
   public readonly faTick = faCheck;
 
@@ -38,36 +36,52 @@ export class SessionComponent extends Destroyed implements OnInit {
   public isOver = false;
 
 
-  constructor(private readonly timerService: TimerService) {
+  constructor(private readonly timerService: TimerService,
+              private readonly router: Router) {
     super();
     this.timers = [];
   }
 
   ngOnInit(): void {
-    this.timerService.timerToLaunchObs
-      .pipe(takeUntil(this.destroyed))
-      .subscribe((timers?: Timer[]) => {
-        if (timers && timers.length > 0) {
-          this.timers = timers;
-          this.currentTimer = this.timers[0];
-          this.currentTime = this.currentTimer.time;
-          this.currentIndex = 0;
+
+    this.initTimers();
+
+    this.router.events.subscribe(
+      (event) => {
+        if (event instanceof NavigationStart) {
+          // Handle Navigation Start
+        }
+
+        if (event instanceof NavigationEnd) {
+          this.timers = [];
+          this.currentTimer = undefined;
+          this.currentTime = undefined;
+          this.currentIndex = undefined;
+          clearInterval(this.currentInterval);
+          this.currentInterval = undefined;
         }
       });
   }
 
+  initTimers() {
+    this.timers = this.timerService.timerList;
+    this.currentTimer = this.timers[0];
+    this.currentTime = this.currentTimer.time;
+    this.currentIndex = 0;
+  }
+
   playPauseCountdown() {
     this.isStarted = true;
-    if(this.isPlaying) {
+    if (this.isPlaying) {
       clearInterval(this.currentInterval);
     } else {
       this.currentInterval = setInterval(() => {
-        if(this.currentTime && this.currentTime > 0) {
-          this.currentTime-=0.05;
+        if (this.currentTime && this.currentTime > 0) {
+          this.currentTime -= 0.05;
         } else {
           this.nextTimer();
         }
-      },50)
+      }, 50)
     }
     this.isPlaying = !this.isPlaying;
   }
@@ -88,10 +102,14 @@ export class SessionComponent extends Destroyed implements OnInit {
   }
 
   playPauseBtn() {
-    if(this.isPlaying) {
+    if (this.isPlaying) {
       return faPauseCircle;
     } else {
       return faPlayCircle
     }
+  }
+
+  async goToRecap() {
+    await this.router.navigate(['recap']);
   }
 }

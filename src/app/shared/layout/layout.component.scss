@@ -5,9 +5,8 @@
   width: 100%;
 
   .content {
-    height: 81%;
-    width: 100%;
-    background: whitesmoke;
+    flex: 1 1 auto;
+    background: ghostwhite;
     overflow: scroll;
   }
 }

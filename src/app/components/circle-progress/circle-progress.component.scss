@@ -12,14 +12,14 @@
 #progress-value {
   height: calc(100% - 30px);
   width: calc(100% - 30px);
-  background-color:whitesmoke;
+  background-color: ghostwhite;
   color: black;
   border-radius: 50%;
   display: grid;
   place-items: center;
   font-weight: 600;
   font-size: 4rem;
-  transition:all 1s;
+  transition: all 1s;
 }
 
 #progress-name {
