@@ -7,7 +7,7 @@
   <div class="toolbar-part">
     <fa-icon [icon]="faHome"></fa-icon>
   </div>
-  <div class="toolbar-part">
-    <fa-icon [icon]="faSettings"></fa-icon>
+  <div (click)="saveModal()" class="toolbar-part">
+    <fa-icon [icon]="faSave"></fa-icon>
   </div>
 </div>

@@ -1,29 +1,32 @@
 import {Injectable} from '@angular/core';
+import {Session} from '../models/session.model';
 import {Timer} from "../models/timer.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TimerService {
-  public timerList: Timer[];
+  public session: Session;
 
   constructor() {
-    this.timerList = [];
+    this.session = new Session();
+    this.session.timers = [];
   }
 
   resetTimer() {
-    this.timerList = [];
+    this.session = new Session();
+    this.session.timers = [];
   }
 
   addTimer(timer: Timer) {
-    this.timerList.push(timer);
+    this.session.timers!.push(timer);
   }
 
   duplicateTimer(index: number) {
-    this.timerList.splice(index + 1, 0, this.timerList[index]);
+    this.session.timers!.splice(index + 1, 0, this.session.timers![index]);
   }
 
   removeTimer(index: number) {
-    this.timerList.splice(index, 1);
+    this.session.timers!.splice(index, 1);
   }
 }

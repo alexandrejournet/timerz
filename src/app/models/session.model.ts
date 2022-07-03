@@ -1,7 +1,11 @@
 import {Timer} from "./timer.model";
+import {DbTypeEnum} from "./dbType/db-type.enum";
 
 export class Session {
-  _id?: number;
+  _id?: string;
+  _rev?: string;
   name?: string;
-  timers?: Timer[]
+  totalTime?: number;
+  timers?: Timer[];
+  type: DbTypeEnum = DbTypeEnum.SESSION;
 }

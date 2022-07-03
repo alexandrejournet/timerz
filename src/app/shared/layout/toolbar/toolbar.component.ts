@@ -6,6 +6,7 @@ import {Timer} from "../../../models/timer.model";
 import {TimerService} from "../../../services/timer.service";
 import {CommonModule} from "@angular/common";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {DialogSaveSessionComponent} from '../../dialog/dialog-save-session/dialog-save-session.component';
 
 @Component({
   standalone: true,
@@ -14,14 +15,16 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
   styleUrls: ['./toolbar.component.scss'],
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    DialogAddTimerComponent,
+    DialogSaveSessionComponent
   ]
 })
 export class ToolbarComponent implements OnInit {
 
   public readonly faAdd = faPlus;
   public readonly faHome = faHome;
-  public readonly faSettings = faFloppyDisk;
+  public readonly faSave = faFloppyDisk;
 
   constructor(private readonly modalService: NgbModal,
               private readonly timerService: TimerService) { }
@@ -30,13 +33,18 @@ export class ToolbarComponent implements OnInit {
   }
 
   openModal() {
-    const modal = this.modalService.open(DialogAddTimerComponent, { centered: true });
+    const modal = this.modalService.open(DialogAddTimerComponent, {centered: true});
 
     modal.result.then((timer: Timer) => {
-      if(timer) {
+      if (timer) {
         this.timerService.addTimer(timer);
       }
     })
+  }
+
+  saveModal() {
+    const modal = this.modalService.open(DialogSaveSessionComponent, {centered: true});
+    modal.componentInstance.session = this.timerService.session;
   }
 
 }

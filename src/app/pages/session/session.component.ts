@@ -64,7 +64,7 @@ export class SessionComponent extends Destroyed implements OnInit {
   }
 
   initTimers() {
-    this.timers = this.timerService.timerList;
+    this.timers = this.timerService.session.timers!;
     this.currentTimer = this.timers[0];
     this.currentTime = this.currentTimer.time;
     this.currentIndex = 0;

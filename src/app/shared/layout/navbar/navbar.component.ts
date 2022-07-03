@@ -43,7 +43,7 @@ export class NavbarComponent extends Destroyed implements OnInit {
   }
 
   get showBtn() {
-    return this.timerService.timerList.length > 0;
+    return this.timerService.session.timers!.length > 0;
   }
 
   ngOnInit(): void {

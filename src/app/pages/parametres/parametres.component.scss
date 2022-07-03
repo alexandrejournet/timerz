@@ -1,0 +1,27 @@
+.profil {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.version {
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

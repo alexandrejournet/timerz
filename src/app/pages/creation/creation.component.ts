@@ -6,6 +6,8 @@ import {TimerService} from "../../services/timer.service";
 import {Destroyed} from "../../shared/injectable/destroyed.injectable";
 import {TimerComponent} from "../../components/timer/timer.component";
 import {CdkDragDrop, DragDropModule, moveItemInArray} from "@angular/cdk/drag-drop";
+import {DialogSaveSessionComponent} from "../../shared/dialog/dialog-save-session/dialog-save-session.component";
+import {DialogAddTimerComponent} from "../../shared/dialog/dialog-add-timer/dialog-add-timer.component";
 
 @Component({
   standalone: true,
@@ -15,7 +17,9 @@ import {CdkDragDrop, DragDropModule, moveItemInArray} from "@angular/cdk/drag-dr
   imports: [
     CommonModule,
     TimerComponent,
-    DragDropModule
+    DragDropModule,
+    DialogAddTimerComponent,
+    DialogSaveSessionComponent
   ]
 })
 export class CreationComponent extends Destroyed implements OnInit {
@@ -27,7 +31,7 @@ export class CreationComponent extends Destroyed implements OnInit {
 
   dropped(event: CdkDragDrop<Timer[]>) {
     moveItemInArray(
-      this.timerService.timerList,
+      this.timerService.session.timers!,
       event.previousIndex,
       event.currentIndex
     );

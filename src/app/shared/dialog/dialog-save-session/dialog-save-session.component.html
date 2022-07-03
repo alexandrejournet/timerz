@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h4 class="modal-title">Sauvegarde d'une session</h4>
+  <button (click)="activeModal.dismiss('Cross click')" aria-label="Close" class="btn-close" type="button"></button>
+</div>
+<div class="modal-body">
+  <label for="name">Nom *</label>
+  <input [(ngModel)]="session.name" class="form-control" id="name" type="text"/>
+</div>
+<div (click)="addTimer()" class="modal-footer d-flex justify-content-center align-items-center">
+  Sauvegarder
+</div>
