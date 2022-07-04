@@ -1,7 +1,7 @@
 {
-  "name": "Timerzz",
-  "short_name": "Timerzz",
-  "theme_color": "#1976d2",
+  "name": "TimerZ",
+  "short_name": "TimerZ",
+  "theme_color": "#f8f8ff",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
