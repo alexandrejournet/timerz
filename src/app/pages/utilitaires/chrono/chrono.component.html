@@ -1,0 +1,9 @@
+<div class="flex-column h-100 w-100">
+  <div class="time-container">
+    {{totalTime | time}}
+  </div>
+  <div class="flex-fill justify-content-center align-items-center d-flex">
+    <fa-icon [icon]="playPauseBtn()" class="play"></fa-icon>
+    <fa-icon [icon]="stopBtn" class="stop"></fa-icon>
+  </div>
+</div>

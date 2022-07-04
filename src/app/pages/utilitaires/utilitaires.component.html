@@ -1,0 +1,18 @@
+<div class="utilitaire-content">
+  <ng-container *ngIf="modeAffichage === 'chrono'">
+    <app-chrono></app-chrono>
+  </ng-container>
+  <ng-container *ngIf="modeAffichage === 'minuteur'">
+    <app-minuteur></app-minuteur>
+  </ng-container>
+</div>
+<div class="utilitaire-tabs">
+  <div (click)="changeMode('chrono')" [ngClass]="{'selected': this.modeAffichage === 'chrono'}" class="tab">
+    <fa-icon [icon]="chronoIcon"></fa-icon>
+    <span>Chrono</span>
+  </div>
+  <div (click)="changeMode('minuteur')" [ngClass]="{'selected': this.modeAffichage === 'minuteur'}" class="tab">
+    <fa-icon [icon]="sablierIcon"></fa-icon>
+    <span>Minuteur</span>
+  </div>
+</div>

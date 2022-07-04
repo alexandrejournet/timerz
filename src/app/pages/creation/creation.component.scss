@@ -1,29 +1,57 @@
-.create-container {
+.page-create {
+  padding: 2em;
   height: 100%;
   width: 100%;
-  background: ghostwhite;
-  padding: 2em;
+  overflow-y: scroll;
 
-  .card-container {
+  .create-container {
+    height: 100%;
     width: 100%;
-    height: 10%;
-    position: relative;
-    transition: 200ms;
-    border-left: 1px solid lightgray;
-    border-right: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-  }
+    background: ghostwhite;
+    max-width: 100%;
 
-  .card-container:first-child {
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
-    border-top: 1px solid lightgray;
-  }
+    .card-container {
+      width: 100%;
+      height: 10%;
+      position: relative;
+      transition: 200ms;
+      border-left: 1px solid lightgray;
+      border-right: 1px solid lightgray;
+      border-bottom: 1px solid lightgray;
+    }
 
-  .card-container:last-child {
-    border-bottom-left-radius: .25rem;
-    border-bottom-right-radius: .25rem;
+    .card-container:first-child {
+      border-top-left-radius: .25rem;
+      border-top-right-radius: .25rem;
+      border-top: 1px solid lightgray;
+    }
+
+    .card-container:last-child {
+      border-bottom-left-radius: .25rem;
+      border-bottom-right-radius: .25rem;
+    }
   }
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
 
 

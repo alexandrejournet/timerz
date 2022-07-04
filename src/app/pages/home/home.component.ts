@@ -12,12 +12,12 @@ export class HomeComponent {
   constructor(private readonly router: Router) {
   }
 
-  async createTimer() {
-    await this.router.navigate(['create']);
+  async goToTimer() {
+    await this.router.navigate(['timer']);
   }
 
-  async goToMesTimers() {
-    await this.router.navigate(['list']);
+  async goToUtilitaires() {
+    await this.router.navigate(['utilitaires']);
   }
 
   async openSettings() {

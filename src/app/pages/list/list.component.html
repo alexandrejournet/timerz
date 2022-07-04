@@ -1,3 +1,10 @@
-<ul>
-  <li *ngFor="let session of sessions"> {{ session.name }} {{session.totalTime | time }}</li>
-</ul>
+<div class="long-card-container">
+  <div (click)="selectSession(session)" *ngFor="let session of sessions" class="long-card">
+    <div class="long-card-name">
+      {{ session.name }}
+    </div>
+    <div class="long-card-time">
+      {{session.totalTime | time }}
+    </div>
+  </div>
+</div>

@@ -6,6 +6,31 @@ const routes: Routes = [
     path: '', loadComponent: () => import('./pages/home/home.component').then(comp => comp.HomeComponent)
   },
   {
+    path: 'timer', loadComponent: () => import('./shared/layout/layout.component').then(comp => comp.LayoutComponent),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./pages/timer-home/timer-home.component').then(comp => comp.TimerHomeComponent)
+      }
+    ],
+    data: {
+      showToolbar: false
+    }
+  },
+  {
+    path: 'utilitaires',
+    loadComponent: () => import('./shared/layout/layout.component').then(comp => comp.LayoutComponent),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./pages/utilitaires/utilitaires.component').then(comp => comp.UtilitairesComponent)
+      }
+    ],
+    data: {
+      showToolbar: false
+    }
+  },
+  {
     path: 'create', loadComponent: () => import('./shared/layout/layout.component').then(comp => comp.LayoutComponent),
     children: [
       {

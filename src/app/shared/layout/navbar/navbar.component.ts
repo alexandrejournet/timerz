@@ -6,7 +6,7 @@ import {Destroyed} from "../../injectable/destroyed.injectable";
 import {takeUntil} from "rxjs";
 import {TimerService} from "../../../services/timer.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
-import {CommonModule} from "@angular/common";
+import {CommonModule, Location} from "@angular/common";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 @Component({
@@ -37,6 +37,7 @@ export class NavbarComponent extends Destroyed implements OnInit {
   public title = "";
 
   constructor(private readonly router: Router,
+              private readonly location: Location,
               private readonly navbarService: NavbarService,
               private readonly timerService: TimerService) {
     super();
@@ -53,9 +54,9 @@ export class NavbarComponent extends Destroyed implements OnInit {
     });
   }
 
-  async goHome() {
+  async goBack() {
     this.timerService.resetTimer();
-    await this.router.navigate(['']);
+    this.location.back();
   }
 
   async goNext() {

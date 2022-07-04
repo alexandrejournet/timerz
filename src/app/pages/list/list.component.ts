@@ -24,9 +24,19 @@ export class ListComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.navbarService.changeTitle("Liste");
+    this.navbarService.changeTitle("Mes sessions");
     this.sessions = await this.databaseService.getSessions();
-    await this.databaseService.getTimers("8a442182-a526-4c69-bd9f-3e734dc5538a");
+
+    /*this.sessions = [...this.sessions, ...this.sessions];
+    this.sessions = [...this.sessions, ...this.sessions];
+    this.sessions = [...this.sessions, ...this.sessions];
+    this.sessions = [...this.sessions, ...this.sessions];*/
+
+    //await this.databaseService.getTimers("8a442182-a526-4c69-bd9f-3e734dc5538a");
+  }
+
+  selectSession(session: Session) {
+    console.log(session);
   }
 
 }
