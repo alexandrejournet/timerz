@@ -1,13 +1,14 @@
 {
-  "name": "timerzz",
-  "version": "0.0.2-0",
+  "name": "timerz",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 1234",
     "build": "ng build -c=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "version-tag": "package-version-git-tag"
+    "version-tag": "semver 0.0.0-alpha.0 -i prerelease >> vers && npm version $vers",
+    "publish-tag": "package-version-git-tag"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +38,7 @@
     "package-version-git-tag": "^3.0.0",
     "pouchdb": "^7.3.0",
     "rxjs": "~7.5.0",
+    "semver": "^7.3.7",
     "tslib": "^2.3.0",
     "uuid": "^8.3.2",
     "zone.js": "~0.11.4"
