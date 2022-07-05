@@ -1,14 +1,15 @@
 {
   "name": "timerz",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 1234",
     "build": "ng build -c=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "version-tag": "semver 0.0.0-alpha.0 -i prerelease >> vers && npm version $vers",
-    "publish-tag": "package-version-git-tag"
+    "version-tag": "node ./update-version",
+    "publish-tag": "package-version-git-tag --push",
+    "tagzz": "npm run version-tag && npm run publish-tag"
   },
   "private": true,
   "dependencies": {
