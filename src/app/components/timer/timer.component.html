@@ -5,7 +5,7 @@
     <span class="me-1 number">{{index}}</span>
     <div class="flex-column timer-info">
       <span *ngIf="timer.name">{{timer.name}}</span>
-      <span>Durée : {{timer.time | time}}</span>
+      <span>Durée : {{timer.time! | time}}</span>
     </div>
     <div class="hidden-btn">
       <fa-icon [icon]="duplicateIcon" (click)="onDuplicate()"></fa-icon>
