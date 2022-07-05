@@ -2,8 +2,7 @@ name: CI
 on:
   push:
     tags:
-      - v1
-      - v1.*
+      - v*
 jobs:
   build:
     runs-on: ubuntu-latest
