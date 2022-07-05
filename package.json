@@ -1,13 +1,13 @@
 {
   "name": "timerzz",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2-0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 1234",
     "build": "ng build -c=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "version": "package-version-git-tag --push"
+    "version-tag": "package-version-git-tag"
   },
   "private": true,
   "dependencies": {
