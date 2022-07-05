@@ -6,11 +6,19 @@ import {Timer} from "../models/timer.model";
   providedIn: 'root'
 })
 export class TimerService {
-  public session: Session;
+  private session: Session;
 
   constructor() {
     this.session = new Session();
     this.session.timers = [];
+  }
+
+  getSession() {
+    return this.session;
+  }
+
+  setSession(session: Session) {
+    this.session = session;
   }
 
   resetTimer() {

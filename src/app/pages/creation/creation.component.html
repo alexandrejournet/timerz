@@ -1,7 +1,8 @@
 <div class="page-create">
   <div (cdkDropListDropped)="dropped($event)" cdkDropList class="create-container">
-    <ng-container *ngIf="timerService.session.timers && timerService.session.timers.length > 0; else noTimerYet">
-      <div *ngFor="let timer of timerService.session.timers; let i = index" class="card-container">
+    <ng-container
+      *ngIf="timerService.getSession().timers && timerService.getSession().timers!.length > 0; else noTimerYet">
+      <div *ngFor="let timer of timerService.getSession().timers; let i = index" class="card-container">
         <app-timer (deleteEvent)="removeTimer(i)"
                    (duplicateEvent)="duplicateTimer(i)"
                    [index]="i +1"

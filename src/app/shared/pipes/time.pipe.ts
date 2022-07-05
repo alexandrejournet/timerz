@@ -21,7 +21,7 @@ export class TimePipe implements PipeTransform {
       }
     } else {
       const min = Math.floor(value / 60);
-      const sec = Math.round(value % 60);
+      const sec = Math.floor(value % 60);
       let secStr = sec.toString().padStart(2, "0");
 
       if (min > 0) {
@@ -30,7 +30,6 @@ export class TimePipe implements PipeTransform {
       } else {
         return secStr;
       }
-      return "00"
     }
   }
 }

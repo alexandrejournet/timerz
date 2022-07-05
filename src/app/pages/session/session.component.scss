@@ -35,15 +35,19 @@
 
     fa-icon {
       color: grey;
+
+      &:active {
+        transform: scale(0.9);
+      }
     }
     fa-icon.play {
-      font-size: 52pt;
+      font-size: 5em;
     }
 
     fa-icon.stop {
-      font-size: 22pt;
+      font-size: 3em;
       position: absolute;
-      right: 25%;
+      right: 20%;
     }
   }
 

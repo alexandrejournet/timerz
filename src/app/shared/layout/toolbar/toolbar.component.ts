@@ -44,7 +44,7 @@ export class ToolbarComponent implements OnInit {
 
   saveModal() {
     const modal = this.modalService.open(DialogSaveSessionComponent, {centered: true});
-    modal.componentInstance.session = this.timerService.session;
+    modal.componentInstance.session = this.timerService.getSession();
   }
 
 }

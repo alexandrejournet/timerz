@@ -31,7 +31,7 @@ export class CreationComponent extends Destroyed implements OnInit {
 
   dropped(event: CdkDragDrop<Timer[]>) {
     moveItemInArray(
-      this.timerService.session.timers!,
+      this.timerService.getSession().timers!,
       event.previousIndex,
       event.currentIndex
     );

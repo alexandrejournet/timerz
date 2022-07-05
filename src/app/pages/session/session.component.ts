@@ -7,6 +7,8 @@ import {CommonModule} from "@angular/common";
 import {faCheck, faPauseCircle, faPlayCircle, faStop} from "@fortawesome/free-solid-svg-icons";
 import {CircleProgressComponent} from "../../components/circle-progress/circle-progress.component";
 import {NavigationEnd, NavigationStart, Router} from "@angular/router";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {DialogStopSessionComponent} from 'src/app/shared/dialog/dialog-stop-session/dialog-stop-session.component';
 
 @Component({
   standalone: true,
@@ -37,7 +39,8 @@ export class SessionComponent extends Destroyed implements OnInit {
 
 
   constructor(private readonly timerService: TimerService,
-              private readonly router: Router) {
+              private readonly router: Router,
+              private readonly modalService: NgbModal,) {
     super();
     this.timers = [];
   }
@@ -64,7 +67,7 @@ export class SessionComponent extends Destroyed implements OnInit {
   }
 
   initTimers() {
-    this.timers = this.timerService.session.timers!;
+    this.timers = this.timerService.getSession().timers!;
     this.currentTimer = this.timers[0];
     this.currentTime = this.currentTimer.time;
     this.currentIndex = 0;
@@ -111,5 +114,16 @@ export class SessionComponent extends Destroyed implements OnInit {
 
   async goToRecap() {
     await this.router.navigate(['recap']);
+  }
+
+  openModalStop() {
+    this.isPlaying = false;
+    const modal = this.modalService.open(DialogStopSessionComponent, {centered: true});
+
+    modal.result.then(async (mode: 'stop' | 'keep') => {
+      if (mode && mode === 'stop') {
+        await this.router.navigate(['recap'])
+      }
+    })
   }
 }

@@ -35,7 +35,7 @@ export class RecapComponent extends Destroyed implements OnInit {
   }
 
   ngOnInit(): void {
-    this.timers = this.timerService.session.timers;
+    this.timers = this.timerService.getSession().timers;
     this.timerService.resetTimer();
   }
 

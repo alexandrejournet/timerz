@@ -1,0 +1,12 @@
+.btn-valid {
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 3px #00000040;
+  cursor: pointer;
+  z-index: 3;
+  background: white;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

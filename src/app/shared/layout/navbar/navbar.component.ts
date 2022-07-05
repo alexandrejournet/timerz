@@ -34,24 +34,21 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 export class NavbarComponent extends Destroyed implements OnInit {
 
   public readonly caretLeft = faAngleLeft;
-  public title = "";
+  public title;
 
   constructor(private readonly router: Router,
               private readonly location: Location,
               private readonly navbarService: NavbarService,
               private readonly timerService: TimerService) {
     super();
-  }
-
-  get showBtn() {
-    return this.timerService.session.timers!.length > 0;
-  }
-
-  ngOnInit(): void {
-
+    this.title = "";
     this.navbarService.navbarObs.pipe(takeUntil(this.destroyed)).subscribe((title: string) => {
       this.title = title;
     });
+  }
+
+  get showBtn() {
+    return this.timerService.getSession().timers!.length > 0;
   }
 
   async goBack() {
@@ -63,4 +60,8 @@ export class NavbarComponent extends Destroyed implements OnInit {
     await this.router.navigate(['session']);
   }
 
+  ngOnInit(): void {
+
+
+  }
 }

@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h4 class="modal-title">Abandon</h4>
+  <button (click)="activeModal.dismiss('Cross click')" aria-label="Close" class="btn-close" type="button"></button>
+</div>
+<div class="modal-body">
+  Voulez-vous arrêter votre séance ?
+</div>
+<div class="modal-footer flex-row justify-content-evenly align-items-center">
+  <div (click)="stopSession()" class="btn-valid">Abandonner</div>
+  <div (click)="keepGoingOn()" class="btn-valid">Continuer</div>
+</div>

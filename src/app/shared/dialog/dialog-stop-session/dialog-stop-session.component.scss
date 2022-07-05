@@ -1,0 +1,20 @@
+:host {
+  height: 30vh;
+
+  .modal-footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    background: ghostwhite;
+  }
+
+  .btn-valid {
+    padding: 10px;
+    cursor: pointer;
+    z-index: 3;
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}

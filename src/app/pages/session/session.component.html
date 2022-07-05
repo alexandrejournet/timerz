@@ -12,7 +12,7 @@
     </div>
     <div class="progress-btn">
       <fa-icon class="play" [icon]="playPauseBtn()" (click)="playPauseCountdown()"></fa-icon>
-      <fa-icon class="stop" [icon]="stopBtn"></fa-icon>
+      <fa-icon (click)="openModalStop()" [icon]="stopBtn" class="stop"></fa-icon>
     </div>
   </ng-container>
   <ng-template #sessionFinished>

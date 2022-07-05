@@ -37,17 +37,24 @@ const routes: Routes = [
         path: '',
         loadComponent: () => import('./pages/creation/creation.component').then(comp => comp.CreationComponent)
       }
-    ],
-    data: {
-      showToolbar: true
-    }
+    ]
   },
   {
     path: 'session',
     loadComponent: () => import('./pages/session/session.component').then(comp => comp.SessionComponent)
   },
   {
-    path: 'recap', loadComponent: () => import('./pages/recap/recap.component').then(comp => comp.RecapComponent)
+    path: 'recap', loadComponent: () => import('./shared/layout/layout.component').then(comp => comp.LayoutComponent),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./pages/recap/recap.component').then(comp => comp.RecapComponent)
+      }
+    ],
+    data: {
+      showNavbar: false,
+      showToolbar: false
+    }
   },
   {
     path: 'params', loadComponent: () => import('./shared/layout/layout.component').then(comp => comp.LayoutComponent),

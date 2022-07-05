@@ -17,7 +17,7 @@
     height: 70vw;
     border-radius: 50%;
     background: white;
-    box-shadow: 0px 0px 4px 3px #00000040;
+    box-shadow: 0 0 4px 3px #00000040;
   }
 }
 
@@ -26,13 +26,21 @@ fa-icon {
 }
 
 fa-icon.play {
-  font-size: 52pt;
+  font-size: 6em;
+
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 fa-icon.stop {
-  font-size: 32pt;
+  font-size: 4em;
   position: absolute;
-  right: 20%;
+  right: 15%;
+
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 .millis {

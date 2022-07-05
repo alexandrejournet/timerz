@@ -1,1 +1,8 @@
-<p>dialog-validation-session works!</p>
+<div class="modal-header">
+  <h4 class="modal-title">Lancement d'une session</h4>
+  <button (click)="activeModal.dismiss('Cross click')" aria-label="Close" class="btn-close" type="button"></button>
+</div>
+<div class="modal-body flex-row justify-content-evenly align-items-center">
+  <div (click)="editSession()" class="btn-valid">Editer la session</div>
+  <div (click)="launchSession()" class="btn-valid">Lancer la session</div>
+</div>
