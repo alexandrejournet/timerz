@@ -47,18 +47,4 @@ fa-icon.stop {
   font-size: 0.5em;
 }
 
-.blink {
-  animation: blink 1s infinite ease-in-out;
-}
 
-@keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 100;
-  }
-  100% {
-    opacity: 0;
-  }
-}

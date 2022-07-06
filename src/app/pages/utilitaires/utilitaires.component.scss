@@ -9,8 +9,8 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  box-shadow: 0 0 4px 3px #00000040;
-  border-top: 1px solid grey;
+  background-color: white;
+  border: 1px solid lightgrey;
 }
 
 .limit {
@@ -30,7 +30,7 @@
 }
 
 .selected {
-  background: grey;
-  color: white
+  background: ghostwhite;
+  color: black;
 }
 

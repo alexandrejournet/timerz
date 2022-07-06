@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {Timer} from "../../models/timer.model";
 
@@ -16,6 +16,7 @@ export class CircleProgressComponent implements OnInit, AfterViewInit {
   @Input() progress?: number;
   progressShown?: number;
   @Input() timer?: Timer;
+  @Input() blink: boolean = false;
 
   @ViewChild('progressBar') progressBar?: ElementRef;
 
@@ -35,7 +36,7 @@ export class CircleProgressComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     this.loadData();
   }
 }
