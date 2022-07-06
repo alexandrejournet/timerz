@@ -1,23 +1,36 @@
 let exec = require('child_process').exec;
-let package = require('./package.json');
+let pack = require('./package.json');
 
-let old_version = package.version;
+let old_version = pack.version;
 let version = "";
+const myArgs = process.argv.slice(2);
 
-let cmd = exec("semver " + old_version + " -i prerelease", function (err, stdout, stderr) {
+let semverCmd = "semver " + old_version + " -i ";
+
+if (!myArgs[0]) {
+  semverCmd += "release";
+  console.log("Build release")
+} else {
+  semverCmd += "prerelease --preid " + myArgs[0];
+  console.log("Build " + myArgs[0])
+}
+
+let cmd = exec(semverCmd, function (err, stdout) {
   if (err) {
     console.log('err', err);
   }
 
   version = stdout;
 
-  let cmd2 = exec("npm version " + version, function (err, stdout, stderr) {
+  let cmd2 = exec("npm version " + version, function (err) {
     if (err) {
       console.log('err', err);
     }
 
-    console.log('version update from ' + old_version + ' to ' + version);
-
+    console.log('Up version from ' + old_version + ' to ' + version);
+    cmd2.on('exit', function (code) {
+      // return value from "npm build"
+    });
   });
 
 });
@@ -25,4 +38,6 @@ let cmd = exec("semver " + old_version + " -i prerelease", function (err, stdout
 cmd.on('exit', function (code) {
   // return value from "npm build"
 });
+
+
 

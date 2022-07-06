@@ -7,9 +7,13 @@
     "build": "ng build -c=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "version-tag": "node ./update-version",
+    "release-tag": "node ./update-version",
+    "beta-tag": "node ./update-version beta",
+    "alpha-tag": "node ./update-version alpha",
     "publish-tag": "package-version-git-tag --push",
-    "tagzz": "npm run version-tag && npm run publish-tag"
+    "alpha": "npm run alpha-tag && npm run publish-tag",
+    "beta": "npm run beta-tag && npm run publish-tag",
+    "release": "npm run release-tag && npm run publish-tag"
   },
   "private": true,
   "dependencies": {
