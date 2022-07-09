@@ -1,7 +1,7 @@
-<div class="profil">
-  <div class="circle">
-    <fa-icon [icon]="profilIcon"></fa-icon>
-  </div>
+<div class="parameters">
+  <app-parametres-item category="Compte" [items]="accountParameters"></app-parametres-item>
+  <app-parametres-item category="Chronomètre" [items]="chronoParameters"></app-parametres-item>
+  <app-parametres-item category="Minuteur" [items]="minuteurParameters"></app-parametres-item>
 </div>
-<hr>
+
 <span class="version">Version {{version}}</span>

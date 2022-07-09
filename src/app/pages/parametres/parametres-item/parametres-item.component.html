@@ -1,0 +1,22 @@
+<div class="param-container">
+  <ng-container *ngIf="category !== ''; else noCat">
+    <div class="cat-div">{{category}}</div>
+    <ng-container *ngFor="let parametre of items">
+      <ng-container *ngTemplateOutlet="item; context: {param: parametre}"></ng-container>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #noCat>
+    <ng-container *ngTemplateOutlet="item; context: {param: item}"></ng-container>
+  </ng-template>
+</div>
+
+
+<ng-template #item let-param="param">
+  <div class="parametre-div">
+    <span>{{param.name}}</span>
+    <div class="switch" *ngIf="param.isSwitch">
+      Oui
+    </div>
+  </div>
+</ng-template>
